@@ -4,10 +4,14 @@ import PropTypes from "prop-types";
 const CardProduct = (props) => {
   const { children } = props;
   return (
-    <div className="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">
+    <div className="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow flex flex-col justify-between">
       {children}
     </div>
   );
+};
+
+CardProduct.propTypes = {
+  children: PropTypes.array,
 };
 
 const Header = (props) => {
@@ -19,10 +23,14 @@ const Header = (props) => {
   );
 };
 
+Header.propTypes = {
+  image: PropTypes.string,
+};
+
 const Body = (props) => {
   const { tittle = "Tittle", children } = props;
   return (
-    <div className="px-5 pb-5">
+    <div className="px-5 pb-5 h-full">
       <a href="">
         <h5 className="text-xl font-semibold tracking-tight text-white">
           {tittle}
@@ -31,6 +39,11 @@ const Body = (props) => {
       </a>
     </div>
   );
+};
+
+Body.propTypes = {
+  tittle: PropTypes.string,
+  children: PropTypes.string,
 };
 
 const Footer = (props) => {
@@ -45,26 +58,13 @@ const Footer = (props) => {
   );
 };
 
+Footer.propTypes = {
+  price: PropTypes.string,
+  buttonText: PropTypes.string,
+};
+
 CardProduct.Header = Header;
 CardProduct.Body = Body;
 CardProduct.Footer = Footer;
 
 export default CardProduct;
-
-CardProduct.propTypes = {
-  children: PropTypes.node,
-};
-
-Header.propTypes = {
-  image: PropTypes.string,
-};
-
-Body.propTypes = {
-  tittle: PropTypes.string,
-  children: PropTypes.node,
-};
-
-Footer.propTypes = {
-  price: PropTypes.string,
-  buttonText: PropTypes.string,
-};

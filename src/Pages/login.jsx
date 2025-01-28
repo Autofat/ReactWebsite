@@ -5,7 +5,7 @@ const LoginPage = () => {
   return (
     <div className="justify-center items-center min-h-screen flex">
       <AuthLayout
-        tittle="Login"
+        tittle="Sign In"
         description="Welcome back! Please login to your account."
         type="login"
       >
