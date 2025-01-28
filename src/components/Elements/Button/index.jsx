@@ -6,7 +6,7 @@ const Button = (props) => {
   return (
     <button
       className={classNames(
-        `${classname} text-white font-bold py-2 px-4 rounded-xl cursor-pointer ease-in-out transition duration-200`
+        `${classname} text-white py-1 px-4 font-semibold rounded-xl cursor-pointer ease-in-out transition duration-200`
       )}
     >
       {children}
