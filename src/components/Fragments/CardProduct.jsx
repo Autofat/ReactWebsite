@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const CardProduct = (props) => {
   const { children } = props;
   return (
-    <div className="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow flex flex-col justify-between">
+    <div className="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow flex flex-col justify-between my-2">
       {children}
     </div>
   );
@@ -47,11 +47,22 @@ Body.propTypes = {
 };
 
 const Footer = (props) => {
-  const { price = "$100", buttonText = "Add to cart" } = props;
+  const {
+    price = "$100",
+    buttonText = "Add to cart",
+    handlerAddToCart,
+    id,
+  } = props;
   return (
     <div className="flex items-center justify-between px-5 pb-5">
-      <span className="text-xl font-bold text-white">{price}</span>
-      <Button classname={"bg-blue-500 hover:bg-blue-700 w-1/2 text-xl"}>
+      <span className="text-xl font-bold text-white">
+        $
+        {price.toLocaleString("en-US", { styles: "currency", currency: "USD" })}
+      </span>
+      <Button
+        classname={"bg-blue-500 hover:bg-blue-700 w-1/2 text-xl"}
+        onClick={() => handlerAddToCart(id)}
+      >
         <h1 className="text-xl">{buttonText}</h1>
       </Button>
     </div>
@@ -59,8 +70,10 @@ const Footer = (props) => {
 };
 
 Footer.propTypes = {
-  price: PropTypes.string,
+  price: PropTypes.number,
   buttonText: PropTypes.string,
+  handlerAddToCart: PropTypes.func,
+  id: PropTypes.number,
 };
 
 CardProduct.Header = Header;

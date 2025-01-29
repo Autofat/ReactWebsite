@@ -15,7 +15,7 @@ const Button = (props) => {
       )}
       type={type}
       onClick={() => {
-        onClick();
+        onClick(onClick);
       }}
     >
       {children}
@@ -24,7 +24,7 @@ const Button = (props) => {
 };
 
 Button.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.any,
   classname: PropTypes.string,
   onClick: PropTypes.func,
   type: PropTypes.string,
